@@ -1,0 +1,7 @@
+langchain==0.3.23
+unstructured==0.17.2
+libmagic==1.0
+python-magic==0.4.27
+python-magic-bin==0.4.14
+ipykernel==6.29.5
+-e .
