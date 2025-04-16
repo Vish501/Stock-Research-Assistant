@@ -7,3 +7,4 @@ python-magic-bin==0.4.14
 unstructured==0.17.2
 faiss-cpu
 sentence-transformers
+pandas
