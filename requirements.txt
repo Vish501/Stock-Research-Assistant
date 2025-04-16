@@ -5,4 +5,5 @@ libmagic==1.0
 python-magic==0.4.27
 python-magic-bin==0.4.14
 unstructured==0.17.2
--e .
+faiss-cpu
+sentence-transformers
