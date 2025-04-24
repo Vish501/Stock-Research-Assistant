@@ -3,7 +3,6 @@ import streamlit as st
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains import RetrievalQAWithSourcesChain
-from langchain.chains.qa_with_sources.loading import load_qa_with_sources_chain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.document_loaders import UnstructuredURLLoader
 from langchain.vectorstores import FAISS
