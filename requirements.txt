@@ -8,3 +8,6 @@ unstructured==0.17.2
 faiss-cpu
 sentence-transformers
 pandas
+langchain-google-genai==2.1.1
+python-dotenv==1.1.0
+streamlit==1.44.1
