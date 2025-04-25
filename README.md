@@ -94,3 +94,6 @@ This project is licensed under the MIT License. See the LICENSE file for details
 - ```Streamlit``` for the interactive web interface.
 - ```Gemini AI``` for AI-powered stock analysis.
 - ```FAISS``` for efficient similarity search.
+
+
+Feel free to contribute to this project by submitting issues or pull requests. For any questions or suggestions, please contact ```Vish501```.
