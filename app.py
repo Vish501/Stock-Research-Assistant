@@ -57,24 +57,36 @@ def main():
             st.session_state.process_url = st.button('Process URLs')
 
         # Reset button to kill the process_url
-        if st.session_state.process_url and st.button('Reset Bot'):
+        if st.button('Reset Bot'):
             st.session_state.process_url = False
+            del st.session_state.vector_index
+            del st.session_state.chain
 
     ### Main application area
     if st.session_state.process_url:
-        # For users so they know the bot is working on process url click
-        main_placeholder.markdown("**Loading Data.....**")
-
         # Building vector_index using urls provided and retrival chain
-        vector_index = data_loader(st.session_state.urls, st.session_state.embeddings)
+        main_placeholder.markdown("**Loading Data.....**")
+        if "vector_index" not in st.session_state:
+            st.session_state.vector_index = data_loader(st.session_state.urls, st.session_state.embeddings)
 
-        st.write(vector_index)
+        # Creating the retrieval chain
+        main_placeholder.markdown("**Initializing Query Bot.....**")
+        if "chain" not in st.session_state:
+            st.session_state.chain = retrieval_construct(st.session_state.llm, st.session_state.vector_index)
 
-        # Query Box
-        #if query := main_placeholder.text_input("Questions: "):
-           # chain = retrieval_construct(st.session_state.llm, vector_index)
-           # query_result = chain({"question": query})
-            #st.write(query_result)
+        temp_placeholder = st.empty()
+        # Querying the vector_index
+        if query := main_placeholder.text_input("Questions: "):
+
+            temp_placeholder.markdown("**Loading Answer.....**")
+            query_result = st.session_state.chain({"question": query}, return_only_outputs=True)
+            temp_placeholder = st.empty()
+
+            # Outputing results
+            st.markdown(f"**Question**: {query}")
+            st.markdown(f"**Answer**: {query_result['answer']}")
+            if query_result['sources']:
+                st.markdown(f"**Sources**: {query_result['sources']}")
 
 
 if __name__ == '__main__':
