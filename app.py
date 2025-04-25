@@ -1,30 +1,37 @@
 import os
 import streamlit as st
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.chains import RetrievalQAWithSourcesChain
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.document_loaders import UnstructuredURLLoader
-from langchain.vectorstores import FAISS
-from sentence_transformers import SentenceTransformer
-from dotenv import load_dotenv
-
-# Loading Google API Key
-load_dotenv()
-os.environ["GOOGLE_API_KEY"] = os.environ.get("GENAI_API_KEY")
-
-# Initializing LLM from Google
-llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash-preview-04-17",
-    temperature=0,
-    max_retries=2,
-)
-
-def main():
-    st.title("Equity Research Tool 📈")
-    st.sidebar.title("News Article URLs")
 
 
+# Adding a new row for more URLs
+def add_row():
+    st.session_state.size = min(10, st.session_state.size + 1)
 
-if __name__ == '__main__':
-    main()
+# Delete entry based on index provided
+def del_row(idx: int):
+    st.session_state.size = max(0, st.session_state.size - 1)
+    del st.session_state.url_entry[idx]
+    del st.session_state.url_del_button[idx]
+
+
+st.title("Equity Research Tool 📈")
+
+# URL input section
+with st.sidebar:
+    st.title("News Article URLs")
+
+    # If the session state does not exist, variables are constructed
+    if "size" not in st.session_state:
+        st.session_state.size = 1
+        st.session_state.url_entry = []
+        st.session_state.url_del_button = []
+
+    # Rendering the entry feild and the deletion button in a 2*1 grid
+    for idx in range(st.session_state.size):
+        col1, col2 = st.columns(2, vertical_alignment="bottom")
+        with col1:
+            st.session_state.url_entry.append(st.text_input(f'URL {idx + 1}', key=f'text{idx}'))
+        with col2:
+            st.session_state.url_del_button.append(st.button("❌", key=f'delete{idx}', on_click=del_row, args=(idx, )))
+
+    # Button to add new feild for additional urls
+    st.button("➕ Add field", on_click=add_row)
