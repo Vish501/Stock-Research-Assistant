@@ -1,23 +1,29 @@
 # Stock-Research-Assistant
 Streamlit application to help with researching stocks
 
-## Requirements
+## 🔧 Features
+
+- **AI-Powered Stock Analysis**: Utilizes Gemini AI to fetch and analyze stock-related data.
+- **Efficient Vector Search**: Uses **FAISS** for fast and scalable similarity search over stock-related embeddings.
+- **Interactive Streamlit Interface**: Provides a user-friendly web interface for seamless interaction.
+- **Customizable Research Parameters**: Allows users to tailor their stock research based on specific criteria.
+
+## 🛠️ Requirements
 
 - Python 3.10.16
 - Required Python packages (listed in `requirements.txt`)
 - Google API Key for accessing the Gemini AI services
-- Pinecone API Key for creating and/or accessing the Pinecone Database
 
-## Installation
+## 🚀 Installation
 
 1. **Clone the repository**:
 
      ```bash
-     git clone https://github.com/Vish501/Medical-ChatBot.git
+     git clone https://github.com/Vish501/Stock-Research-Assistant.git
     ```
      
      ```bash
-     cd Medical-ChatBot
+     cd Stock-Research-Assistant
     ```
      
 2. **Install dependencies**:
@@ -33,7 +39,7 @@ Streamlit application to help with researching stocks
    ```
      Then, install the required packages: ```pip install -r requirements.txt```
 
-## Setting Up the Google API Key
+## 💻 Setting Up the Google API Key
 
 To use the Gemini API, you need to set up your GOOGLE_API_KEY:
 
@@ -52,3 +58,35 @@ To use the Gemini API, you need to set up your GOOGLE_API_KEY:
      - Click **Add secret**
 
 This will allow the chatbot to authenticate and communicate with the Gemini API securely.
+
+## 💻 Usage
+
+To run the application:​
+
+```bash
+streamlit run app.py
+```
+
+This will launch the Streamlit web interface in your default browser, where you can start researching stocks using the integrated AI tools.
+
+## 📁 Project Structure
+- ```app.py```: Main application file for Streamlit.
+- ```requirements.txt```: List of required Python packages.
+- ```setup.py```: Setup configuration for the project.
+- ```template.py```: Contains template code to create the basic project structure.
+- ```research/```: Directory for research-related files and data.
+- ```src/```: Source code directory containing modules and packages.
+
+## ⚠️ Disclaimer
+
+This application is powered by AI technologies including language models and vector search. While the bot is designed to provide helpful insights, **it may occasionally produce inaccurate, outdated, or incomplete information**.
+
+**Users are strongly advised to do their own research and consult with a qualified financial advisor before making any investment decisions.** The creators of this project are not responsible for any financial losses or actions taken based on the information provided by this tool.
+
+Use this application at your own risk.
+
+## 📄 License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+
