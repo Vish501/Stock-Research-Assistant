@@ -1,5 +1,5 @@
 # Stock-Research-Assistant
-Streamlit application to help with researching stocks
+The **Stock Research Assistant** is a Python-based Streamlit application designed to assist users in researching stocks by leveraging AI-powered tools. It integrates with Gemini AI services and FAISS for vector search to provide insightful analyses and information on various stocks.
 
 ## 🔧 Features
 
