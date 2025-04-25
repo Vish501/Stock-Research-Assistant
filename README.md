@@ -89,4 +89,8 @@ Use this application at your own risk.
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
+## 🙌 Acknowledgements
 
+- ```Streamlit``` for the interactive web interface.
+- ```Gemini AI``` for AI-powered stock analysis.
+- ```FAISS``` for efficient similarity search.
